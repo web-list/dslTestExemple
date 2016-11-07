@@ -79,6 +79,21 @@ suite("pizzeria tests", function() {
 
     });
 
+    suite("customer ask pizza with mushrooms filling", function() {
+
+        test("customer pay $9 and get pizza", function() {
+            let money = 9;
+
+            let pizza = new NewPizzaRequest()
+                .pay(money)
+                .withFilling("mushrooms")
+                .build();
+
+            assert.equal(pizza.count, 1);
+        });
+
+    });
+
     teardown(function() {
     });
 

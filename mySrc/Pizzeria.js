@@ -1,15 +1,22 @@
 
 const pizzaPrice = 10;
+const mushroomCoefficient = 0.9;
 
 export function PizzaRequest(money, dough, filling, olives, count) {
     if (!count) count = 1;
 
-    if (money >= pizzaPrice * count) {
+    let price = pizzaPrice;
+
+    if (filling == "mushrooms") {
+        price = price * mushroomCoefficient;
+    }
+
+    if (money >= price * count) {
         this.dough = dough;
         this.filling = filling;
         this.olives = olives;
         this.count = count;
-        this.back = money - (pizzaPrice * count);
+        this.back = money - (price * count);
     } else {
         this.count = 0;
     }
