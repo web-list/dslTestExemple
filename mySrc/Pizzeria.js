@@ -40,8 +40,13 @@ export function NewPizzaRequest() {
         return this;
     };
 
+    this.count = function (count) {
+      data.count = count;
+      return this;
+    };
+
     this.build = function() {
-        return new PizzaRequest(data.money, data.dough, data.filling, data.olives);
+        return new PizzaRequest(data.money, data.dough, data.filling, data.olives, data.count);
     };
 
 

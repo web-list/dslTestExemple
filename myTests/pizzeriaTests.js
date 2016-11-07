@@ -46,6 +46,23 @@ suite("pizzeria tests", function() {
 
     });
 
+    suite("customer pay $30 ask 3 pizza", function() {
+
+        test("customer get 3 pizza", function() {
+            let money = 30;
+            let count = 3;
+
+            let pizza = new NewPizzaRequest()
+                .withoutOlives()
+                .count(count)
+                .pay(money)
+                .build();
+
+            assert.equal(pizza.count, 3);
+        });
+
+    });
+
     teardown(function() {
     });
 
