@@ -33,6 +33,19 @@ suite("pizzeria tests", function() {
         });
     });
 
+    suite("customer not pay and ask any pizza", function() {
+
+        test("customer do not get pizza", function() {
+
+            let pizza = new NewPizzaRequest()
+                .withFilling("chicken")
+                .build();
+
+            assert.equal(pizza.count, 0);
+        });
+
+    });
+
     teardown(function() {
     });
 

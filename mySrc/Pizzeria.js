@@ -1,14 +1,19 @@
 
+const pizzaPrice = 10;
 
-export function PizzaRequest(money, dough, filling, olives) {
+export function PizzaRequest(money, dough, filling, olives, count) {
+    if (!count) count = 1;
 
-    if (money == 10) {
+    if (money >= pizzaPrice * count) {
         this.dough = dough;
         this.filling = filling;
         this.olives = olives;
-        return this;
+        this.count = count;
+    } else {
+        this.count = 0;
     }
 
+    return this;
 }
 
 export function NewPizzaRequest() {
