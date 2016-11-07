@@ -63,6 +63,22 @@ suite("pizzeria tests", function() {
 
     });
 
+    suite("customer pay more than required and get back", function() {
+
+        test("when customer pay $40 and ask 3 pizza then back equal $10", function() {
+            let money = 40;
+            let count = 3;
+
+            let pizza = new NewPizzaRequest()
+                .count(count)
+                .pay(money)
+                .build();
+
+            assert.equal(pizza.back, 40 - 3 * 10);
+        });
+
+    });
+
     teardown(function() {
     });
 

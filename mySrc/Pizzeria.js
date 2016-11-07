@@ -9,6 +9,7 @@ export function PizzaRequest(money, dough, filling, olives, count) {
         this.filling = filling;
         this.olives = olives;
         this.count = count;
+        this.back = money - (pizzaPrice * count);
     } else {
         this.count = 0;
     }
