@@ -1,5 +1,5 @@
 import assert from 'assert';
-import  {PizzaRequest} from "../mySrc/Pizzeria";
+import  {NewPizzaRequest} from "../mySrc/Pizzeria";
 
 suite("pizzeria tests", function() {
 
@@ -10,7 +10,12 @@ suite("pizzeria tests", function() {
 
         test("customer get chicken pizza", function() {
             let money = 10;
-            let pizza = new PizzaRequest(money, "thin", "chicken", false);
+            let pizza = new NewPizzaRequest()
+                .pay(money)
+                .onDough("thin")
+                .withFilling("chicken")
+                .withoutOlives()
+                .build();
             assert.equal(pizza.filling, "chicken");
         });
     });
